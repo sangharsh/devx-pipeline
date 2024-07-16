@@ -33,17 +33,27 @@ func getPort() int {
 
 func main() {
 	// Connect to the database
-	var err error
-	conn, err = pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
-	if err != nil {
-		log.Fatalf("Unable to connect to database: %v", err)
-	}
-	defer conn.Close(context.Background())
+	// var err error
+	// conn, err = pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
+	// if err != nil {
+	// 	log.Fatalf("Unable to connect to database: %v", err)
+	// }
+	// defer conn.Close(context.Background())
 
 	r := mux.NewRouter()
 
+	r.HandleFunc("/statusz", handleStatusz)
 	r.HandleFunc("/inventory", handleInventory)
 	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(getPort()), r))
+}
+
+func handleStatusz(w http.ResponseWriter, _ *http.Request) {
+	response := map[string]string{
+		"message": "hello world",
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(response)
 }
 
 func handleInventory(w http.ResponseWriter, r *http.Request) {
