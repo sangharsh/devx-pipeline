@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+      - name: inventory
+        image: inventory:v1
+        imagePullPolicy: Never
+        env:
+        - name: DATABASE_URL
+          value: postgres://inventory_user:abc123xyz@my-postgres-postgresql:5432/inventory_db
+        ports:
+        - containerPort: 8080

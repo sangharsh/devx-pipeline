@@ -1,0 +1,15 @@
+# kubectl create configmap my-sql-config --from-file=init.sql=/path/to/your/init.sql
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+data:
+  init.sql: |
+    CREATE TABLE inventory (
+      id SERIAL PRIMARY KEY,
+      product_name VARCHAR(255) NOT NULL,
+      product_description TEXT,
+      quantity INT NOT NULL CHECK (quantity >= 0),
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
