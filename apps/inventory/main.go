@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -31,23 +32,41 @@ func getPort() int {
 	return 8080 // Default port
 }
 
+func getDbURI() string {
+	// Get database connection parameters from environment variables
+	dbHost := os.Getenv("POSTGRES_HOST")
+	dbPort := os.Getenv("POSTGRES_PORT")
+	dbUser := os.Getenv("POSTGRES_USER")
+	dbPassword := os.Getenv("POSTGRES_PASSWORD")
+	dbName := os.Getenv("POSTGRES_DB")
+
+	// Construct the database connection string
+	dbURI := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+		dbHost, dbPort, dbUser, dbPassword, dbName)
+	return dbURI
+}
+
 func main() {
 	// Connect to the database
-	// var err error
-	// conn, err = pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
-	// if err != nil {
-	// 	log.Fatalf("Unable to connect to database: %v", err)
-	// }
-	// defer conn.Close(context.Background())
+	var err error
+	dbUri := getDbURI()
+	conn, err = pgx.Connect(context.Background(), dbUri)
+	if err != nil {
+		log.Fatalf("Unable to connect to database: %v", err)
+	}
+	defer conn.Close(context.Background())
 
 	r := mux.NewRouter()
 
 	r.HandleFunc("/statusz", handleStatusz)
 	r.HandleFunc("/inventory", handleInventory)
-	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(getPort()), r))
+	port := getPort()
+	log.Printf("Starting http server at port %d", port)
+	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(port), r))
 }
 
-func handleStatusz(w http.ResponseWriter, _ *http.Request) {
+func handleStatusz(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Received %s request at %s", r.Method, r.RequestURI)
 	response := map[string]string{
 		"message": "hello world",
 	}
@@ -57,6 +76,7 @@ func handleStatusz(w http.ResponseWriter, _ *http.Request) {
 }
 
 func handleInventory(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Received %s request at %s", r.Method, r.RequestURI)
 	switch r.Method {
 	case http.MethodGet:
 		listInventory(w, r)
