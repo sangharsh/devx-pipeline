@@ -17,7 +17,17 @@ spec:
         image: inventory:v1
         imagePullPolicy: Never
         env:
-        - name: DATABASE_URL
-          value: postgres://inventory_user:abc123xyz@my-postgres-postgresql:5432/inventory_db
+        - name: POSTGRES_HOST
+          value: my-postgres-postgresql
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          value: inventory_user
+        - name: POSTGRES_PASSWORD
+          value: "abc123xyz"
+        - name: POSTGRES_DB
+          value: "inventory_db"
+        - name: PORT
+          value: "8080"
         ports:
         - containerPort: 8080
