@@ -3,7 +3,7 @@ var_sources:
   type: vault
   config:
     url: http://host.docker.internal:8200
-    client_token: hvs.CAESIIR0KNa2RBQShbMnIWAdykrjt1kLNdDWV6bHEWvdSDnIGh4KHGh2cy4wdlduRTg2V3RWbjhxU2xTUFhLZ2M2Vno
+    client_token: hvs.CAESIIR0KNa2RBQShbMnIWAdykrjt1kLNdDWV6bHEWvdSDnIGh4KHGh2cy4wdlduRTg2V3RWbjhxU2xTUFhLZ2M2Vno # Move to cert or another way
 
 resources:
 - name: repo
