@@ -7,7 +7,7 @@ sleep 20
 kubectl apply -f k8s/postgres-init-configmap.yaml
 kubectl apply -f k8s/postgres-init-job.yaml
 eval $(minikube docker-env)
-docker build -t inventory:v1 .
+docker build -t inventory:latest .
 kubectl apply -f k8s/app-deployment.yaml
 kubectl apply -f k8s/app-service.yaml
 

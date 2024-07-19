@@ -12,7 +12,7 @@ image:
   repository: inventory
   pullPolicy: Never
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
