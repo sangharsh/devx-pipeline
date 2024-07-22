@@ -2,11 +2,32 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# TODO: Move SQL to a common place
+postgresql:
+  enabled: true
+  auth:
+    username: inventory_user
+    password: "abc123xyz"
+    database: inventory_db
+  primary:
+    initdb:
+      scripts:
+        create-inventory-table.sql: |
+          CREATE TABLE inventory (
+              id SERIAL PRIMARY KEY,
+              product_name VARCHAR(255) NOT NULL,
+              product_description TEXT,
+              quantity INT NOT NULL CHECK (quantity >= 0),
+              created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+              updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+          );
+
+
 replicaCount: 1
 
 env:
-  - name: PORT
-    value: 80
+  POSTGRES_PORT: 5432
+  PORT: 8080
 
 image:
   repository: inventory
@@ -44,7 +65,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
+  type: NodePort
   port: 8080
 
 ingress:
