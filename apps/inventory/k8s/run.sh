@@ -18,3 +18,10 @@ kubectl apply -f k8s/app-service.yaml
 # In a different terminal
 export SERVICE_NAME=inventory-service
 minikube service ${SERVICE_NAME} --url
+
+# Uninstall and clean up
+kubectl delete deploy inventory
+kubectl delete service inventory-service
+kubectl delete job postgres-init-job
+helm uninstall inventory-db
+kubectl delete pvc data-inventory-db-postgresql-0
