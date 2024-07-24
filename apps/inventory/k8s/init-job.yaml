@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: inventory-init-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: postgres-client
+        image: postgres:13
+        command: ["/bin/sh", "-c"]
+        args:
+        - PGPASSWORD=$POSTGRES_PASSWORD psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB -f /inventory-init-data/db-init.sql
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "abc123xyz"
+        - name: POSTGRES_HOST
+          value: inventory-postgresql
+        - name: POSTGRES_USER
+          value: inventory_user
+        - name: POSTGRES_DB
+          value: "inventory_db"
+        volumeMounts:
+        - name: inventory-init-data
+          mountPath: /inventory-init-data
+      restartPolicy: OnFailure
+      volumes:
+      - name: inventory-init-data
+        configMap:
+          name: inventory-init-data

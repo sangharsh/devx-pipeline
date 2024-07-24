@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+      - name: inventory
+        image: inventory:latest
+        imagePullPolicy: Never
+        env:
+        # TODO: Make these variables DRY
+        - name: POSTGRES_HOST
+          value: inventory-postgresql
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          value: inventory_user
+        - name: POSTGRES_PASSWORD
+          value: "abc123xyz"
+        - name: POSTGRES_DB
+          value: "inventory_db"
+        - name: PORT
+          value: "8080"
+        ports:
+        - containerPort: 8080

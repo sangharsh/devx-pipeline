@@ -1,0 +1,39 @@
+# Concouse pipeline file
+
+var_sources:
+- name: vault
+  type: vault
+  config:
+    url: http://host.docker.internal:8200
+    client_token: hvs.CAESIIR0KNa2RBQShbMnIWAdykrjt1kLNdDWV6bHEWvdSDnIGh4KHGh2cy4wdlduRTg2V3RWbjhxU2xTUFhLZ2M2Vno
+# TODO: Remove token from VCS. Move to cert or another way
+
+resources:
+- name: repo
+  type: git
+  source:
+    uri: git@github.com:sangharsh/devx-pipeline.git
+    branch: inventory
+    private_key: ((vault:shared.ssh_key))
+
+jobs:
+- name: build
+  plan:
+  - get: repo
+    trigger: true
+  - task: build
+    config:
+      platform: linux
+      image_resource:
+        type: registry-image
+        source: {repository: golang, tag: 1.22}
+      inputs:
+        - name: repo
+      run:
+        path: sh
+        args:
+          - -exc
+          - |
+            ls repo/
+            cd repo/inventory
+            go build -v -o binary ./...

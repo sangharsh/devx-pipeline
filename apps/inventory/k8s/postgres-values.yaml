@@ -1,0 +1,14 @@
+# Used by helm for postgres
+global:
+  postgresql:
+    auth:
+      username: "inventory_user"
+      password: "abc123xyz"
+      database: "inventory_db"
+
+persistence:
+  size: 100Mi
+
+service:
+  type: ClusterIP
+  port: 5432
