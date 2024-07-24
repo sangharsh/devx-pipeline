@@ -10,7 +10,7 @@ spec:
         image: postgres:13
         command: ["/bin/sh", "-c"]
         args:
-        - PGPASSWORD=$POSTGRES_PASSWORD psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB -f /scripts/init.sql
+        - PGPASSWORD=$POSTGRES_PASSWORD psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB -f /scripts/db-init.sql
         env:
         - name: POSTGRES_PASSWORD
           value: "abc123xyz"
@@ -27,4 +27,4 @@ spec:
       volumes:
       - name: init-script
         configMap:
-          name: postgres-init-script
+          name: db-init-sql
