@@ -21,10 +21,6 @@
 go.work
 go.work.sum
 
-# Tmp files
-*.tmp
-tmp/
-
 # Experimental directory
 expr/
 
