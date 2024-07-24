@@ -9,7 +9,8 @@ helm install inventory-db bitnami/postgresql -f k8s/postgres-values.yaml --versi
 sleep 20
 kubectl create configmap db-init-sql --from-file=db-init.sql=./db-init.sql
 kubectl apply -f k8s/postgres-init-job.yaml
-eval $(minikube docker-env)
+# Point docker client to dockerd inside minikube
+eval $(minikube -p minikube docker-env)
 docker build -t inventory:latest .
 kubectl apply -f k8s/app-deployment.yaml
 kubectl apply -f k8s/app-service.yaml
