@@ -19,7 +19,7 @@ spec:
         env:
         # TODO: Make these variables DRY
         - name: POSTGRES_HOST
-          value: inventory-db-postgresql
+          value: inventory-postgresql
         - name: POSTGRES_PORT
           value: "5432"
         - name: POSTGRES_USER
