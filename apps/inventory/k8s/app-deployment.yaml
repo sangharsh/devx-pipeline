@@ -17,8 +17,9 @@ spec:
         image: inventory:latest
         imagePullPolicy: Never
         env:
+        # TODO: Make these variables DRY
         - name: POSTGRES_HOST
-          value: my-postgres-postgresql
+          value: inventory-db-postgresql
         - name: POSTGRES_PORT
           value: "5432"
         - name: POSTGRES_USER

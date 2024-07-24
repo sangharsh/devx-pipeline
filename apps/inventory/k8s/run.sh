@@ -2,7 +2,10 @@
 # Do not auto run. Few commands need a separate terminal
 
 minikube start
-helm install my-postgres bitnami/postgresql -f k8s/postgres-values.yaml
+
+# TODO: Consider replacing helm with k8s yamls for postgres
+# May need pvc, deployment, secret, service
+helm install inventory-db bitnami/postgresql -f k8s/postgres-values.yaml --version 15.5.16
 sleep 20
 kubectl create configmap db-init-sql --from-file=db-init.sql=./db-init.sql
 kubectl apply -f k8s/postgres-init-job.yaml

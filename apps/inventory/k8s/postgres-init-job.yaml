@@ -15,7 +15,7 @@ spec:
         - name: POSTGRES_PASSWORD
           value: "abc123xyz"
         - name: POSTGRES_HOST
-          value: my-postgres-postgresql
+          value: inventory-db-postgresql
         - name: POSTGRES_USER
           value: inventory_user
         - name: POSTGRES_DB
