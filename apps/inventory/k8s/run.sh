@@ -23,5 +23,6 @@ minikube service ${SERVICE_NAME} --url
 kubectl delete deploy inventory
 kubectl delete service inventory-service
 kubectl delete job postgres-init-job
+kubectl delete configmap db-init-sql
 helm uninstall inventory-db
 kubectl delete pvc data-inventory-db-postgresql-0
