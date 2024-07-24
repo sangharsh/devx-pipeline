@@ -1,7 +1,7 @@
+# Used by helm for postgres
 global:
   postgresql:
     auth:
-      postgresPassword: "your_postgres_password"
       username: "inventory_user"
       password: "abc123xyz"
       database: "inventory_db"

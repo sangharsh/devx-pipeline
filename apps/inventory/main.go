@@ -50,6 +50,7 @@ func main() {
 	// Connect to the database
 	var err error
 	dbUri := getDbURI()
+	// TODO: DB connection is attempted once. If DB is not ready or goes down later, it should recover
 	conn, err = pgx.Connect(context.Background(), dbUri)
 	if err != nil {
 		log.Fatalf("Unable to connect to database: %v", err)
