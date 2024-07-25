@@ -1,6 +1,22 @@
-# Developer experience setup
+# Developer Experience
 
-# Business requirement
+## Intent
+
+Understand and push boundaries for the best possible developer experience (DevX) across software lifecycle, from product specifications to production deployment along with logging, monitoring, alerts, incidents. Will review how much is reasonable to cover in this project. Possibly, figure out any improvement areas.
+
+Best DevX is ofcourse subjective, opnionated. It depends on many factors and organization setups. This project will try to assume fluidity on those fronts, in order to maximize on DevX front.
+
+## What is DevX
+
+Engineering team (developer, QA, Devops) should be able to deliver business value in most efficient way possible. Underlying tools, platforms should take care of all checks, provide timely feedback. Individual should be able to function as independently as possible. Be able to access or setup an environment as per their need in a seamless way.
+
+## Approach
+
+Build an end to end pipeline for software development using available tools best fitted for the purpose. Prefer to use tools which are free, open-source, self-hosted. Keep all code, configuration for setup from scratch in VCS.
+
+Many of cutting edge tools might be proprietary. They might be considered for this project if there is a free tier which is not time-limited.
+
+# Sample business requirement
 
 Build a system to take simple e-commerce orders and manage inventory through a browser-based interface
 
@@ -82,6 +98,7 @@ Yet to finalize on tool. Have briefly evaluated the following.
 1. Hashicorp Vault: Selected. Seems to be most popular open-source, self-hosted tool
 
 ## Deployment
+
 - In local, have setup docker compose, k8s yamls, and helm based deployment
 - TODO: Figure out production approach
 
