@@ -35,5 +35,5 @@ jobs:
           - -exc
           - |
             ls repo/
-            cd repo/inventory
+            cd repo/apps/inventory
             go build -v -o binary ./...
