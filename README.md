@@ -2,19 +2,30 @@
 
 ## Intent
 
-Understand and push boundaries for the best possible developer experience (DevX) across software lifecycle, from product specifications to production deployment along with logging, monitoring, alerts, incidents. Will review how much is reasonable to cover in this project. Possibly, figure out any improvement areas.
-
-Best DevX is ofcourse subjective, opnionated. It depends on many factors and organization setups. This project will try to assume fluidity on those fronts, in order to maximize on DevX front.
+1. Understand the best possible developer experience (DevX) across software lifecycle, from product specs to deployment, using available tools.
+1. Identify improvement areas
 
 ## What is DevX
 
-Engineering team (developer, QA, Devops) should be able to deliver business value in most efficient way possible. Underlying tools, platforms should take care of all checks, provide timely feedback. Individual should be able to function as independently as possible. Be able to access or setup an environment as per their need in a seamless way.
+Referring to Addy Osmani's [book](https://read-dx.addy.ie/preface)
+> Developer Experience (DX) is all about how easily and effectively developers can get things done.
+
+Engineering team (developer, QA, Devops) should be able to deliver business value in most efficient way possible. Underlying tools, platforms should take care of everything possible by machines, provide timely support and feedback. Individual should be able to function as independently as possible without waiting/blocking on another individual.
+
+> Be able to access or setup an environment as per their need in a seamless way.
+
+## Caveat
+
+Best DevX is ofcourse subjective, opnionated. It depends on many factors and organization setups. This project will try to assume fluidity on those fronts, in order to maximize on DevX front.
 
 ## Approach
 
-Build an end to end pipeline for software development using available tools best fitted for the purpose. Prefer to use tools which are free, open-source, self-hosted. Keep all code, configuration for setup from scratch in VCS.
+Starting with web domain as I am most familiar with it. Usually startup begin with a monolith, over time some microservices are spun up to address new requirements or carve out the monolith. Typical companies have a bunch of services (1-few monoliths, 10 to 500 microservices, depending on size). Many services have their own datastore and communicate with each other to facilitate user flows, popularly HTTP request/response following REST convention and JSON data format.
 
-Many of cutting edge tools might be proprietary. They might be considered for this project if there is a free tier which is not time-limited.
+Take a simplistic slice of popular system setup of startup/companies.
+Build an end to end tool chain for software development using best available tools for the purpose. Prefer to use tools which are free, open-source, self-hosted. Keep all code, configuration for setup from scratch in VCS.
+
+Many of cutting edge tools might be commercial or internal. Commercial tools might be considered for this project if there is a free tier which is not time-limited.
 
 # Sample business requirement
 
@@ -105,6 +116,7 @@ Yet to finalize on tool. Have briefly evaluated the following.
 # TODO
 
 API docs, Container registry, IaC, production environment, easy setup of lower environment (okteto, garden etc.)
+Logging, monitoring, alerts, incidents.
 
 ## Testing
 

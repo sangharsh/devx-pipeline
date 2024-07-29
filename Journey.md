@@ -1,7 +1,14 @@
-TODO: Helm wait
+TODO: Helm wait - Not supported
 TODO: Fix concourse build
 TODO: Password is committed in plain-text. Fix it
 TODO: DB connection in golang once closed is not re-created
+
+## Jul 25
+Production deployment
+CI/CD pipeline
+Ephemeral environments
+
+Fix tests and concourse build pipeline
 
 ## Jul 24
 
