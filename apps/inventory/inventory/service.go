@@ -13,7 +13,6 @@ func ListInventory() ([]Inventory, error) {
 	if err != nil {
 		log.Printf("Error querying database: %v", err)
 		return nil, err
-		// http.Error(w, "Error querying database", http.StatusInternalServerError)
 	}
 	defer rows.Close()
 
@@ -25,7 +24,6 @@ func ListInventory() ([]Inventory, error) {
 		if err != nil {
 			log.Printf("Error parsing database result: %v", err)
 			return nil, err
-			// http.Error(w, "Error parsing database result", http.StatusInternalServerError)
 		}
 		list = append(list, item)
 	}
@@ -33,7 +31,6 @@ func ListInventory() ([]Inventory, error) {
 	if err := rows.Err(); err != nil {
 		log.Printf("Error iterating over database results: %v", err)
 		return nil, err
-		// http.Error(w, "Error iterating over database results", http.StatusInternalServerError)
 	}
 	return list, nil
 }
