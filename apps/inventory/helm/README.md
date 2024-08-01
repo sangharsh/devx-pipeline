@@ -1,4 +1,14 @@
-## Release name
+# Install app using Helm
+
+## Install helm
+
+https://helm.sh/docs/intro/install/
+
+## Install minikube
+
+Instructions [here](../k8s/README.md#install-minikube)
+
+## Set release name
 
 ```
 export RELEASE_NAME=r1 # Replace with your chosen release name
