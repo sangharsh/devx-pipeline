@@ -8,19 +8,18 @@
 ## What is DevX
 
 Referring to Addy Osmani's [book](https://read-dx.addy.ie/preface)
+
 > Developer Experience (DX) is all about how easily and effectively developers can get things done.
 
 Engineering team (developer, QA, Devops) should be able to deliver business value in most efficient way possible. Underlying tools, platforms should take care of everything possible by machines, provide timely support and feedback. Individual should be able to function as independently as possible without waiting/blocking on another individual.
 
+Sub point note:
+
 > Be able to access or setup an environment as per their need in a seamless way.
-
-## Caveat
-
-Best DevX is ofcourse subjective, opnionated. It depends on many factors and organization setups. This project will try to assume fluidity on those fronts, in order to maximize on DevX front.
 
 ## Approach
 
-Starting with web domain as I am most familiar with it. Usually startup begin with a monolith, over time some microservices are spun up to address new requirements or carve out the monolith. Typical companies have a bunch of services (1-few monoliths, 10 to 500 microservices, depending on size). Many services have their own datastore and communicate with each other to facilitate user flows, popularly HTTP request/response following REST convention and JSON data format.
+Starting with web domain as I am most familiar with it. Usually startup begin with a monolith, over time some microservices are spun up to address new requirements or carve out the monolith. Typical companies have a bunch of services (1-few monoliths, 10 to 500 microservices, depending on org's size). Many services have their own datastore and communicate with each other to facilitate user flows, popularly HTTP request/response following REST convention and JSON data format.
 
 Take a simplistic slice of popular system setup of startup/companies.
 Build an end to end tool chain for software development using best available tools for the purpose. Prefer to use tools which are free, open-source, self-hosted. Keep all code, configuration for setup from scratch in VCS.
@@ -44,7 +43,7 @@ Most of the things should be source code driven (gitops?). Avoid vendor lock-in.
 
 Use a set of popular tools to build.
 
-Continually evaluate each step for developer experience.
+Continuously evaluate each step for developer experience.
 
 ## Project requirement
 
@@ -111,7 +110,7 @@ Yet to finalize on tool. Have briefly evaluated the following.
 ## Deployment
 
 - In local, have setup docker compose, k8s yamls, and helm based deployment
-- TODO: Figure out production approach
+- TODO: Figure out production setup and intermediate lower environments
 
 # TODO
 
