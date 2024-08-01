@@ -85,18 +85,23 @@ Yet to finalize on tool. Have briefly evaluated the following.
 1. Gitlab: Full stack solution
 1. Dagger:
 1. Tekton: Kubernetes based only
-1. Concourse CI: Entirely configuration driven which could be tracked with VCS. Github stars: ~8000. Selected.
+1. **Concourse CI**: Entirely configuration driven which could be tracked with VCS. Github stars: ~8000. Selected.
 
 ## Secret
 
 1. AWS, Azure, GCP offering: Avoid vendor lock-in. Prefer self-hosted solution
-1. Hashicorp Vault: Selected. Seems to be most popular open-source, self-hosted tool
+1. **Hashicorp Vault**: Selected. Seems to be most popular open-source, self-hosted tool
 
 ## Deployment
 
 1. **Virtual Machines**. Teams should start with simple VM based deployments when they have a couple of services. VMs are simpler from learning perspective and easy to manage with footprint is smaller.
 1. **Containers and orchestration**. As service footprint increases, investment into container and orchestration makes sense.
    - **Kubernetes**. Most popular and open-source container orchestration framework. Defacto choice.
+
+Opting for containers and Kubernetes because:
+
+1. Easier to build and destroy.
+1. Popular choice among mid to large companies with many microservices.
 
 Current status:
 

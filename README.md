@@ -4,7 +4,7 @@ End to end tool chain for software building with high emphasis for Developer exp
 
 > Developer Experience (DX) is all about how easily and effectively developers can get things done.
 >
-> -- <cite>Addy Osmani</cite>'s [book](https://read-dx.addy.ie/preface)
+> -- <cite>[Addy Osmani](https://read-dx.addy.ie/preface)</cite>
 
 # Sample business requirement
 
@@ -14,7 +14,7 @@ End to end tool chain for software building with high emphasis for Developer exp
 
 # Goals
 
-List is incomplete and WIP.
+List is being worked on and will be updated.
 
 1. Apps should be easy to setup and test for someone new to the codebase, including pre-requisites, infra, networking and seed data.
 1. Changes in code should be easy to test along with dependent services as needed. Possible solution: Ephermeral environments
@@ -22,13 +22,15 @@ List is incomplete and WIP.
 
 # Tech stack
 
-Evaluation framework. Tool being used and alternatives considered are mentioned in [Techstack](/Techstack.md)
+Evaluation framework, tools being used and alternatives considered are mentioned in [Techstack](/Techstack.md)
 
-# Status
+# Current Status
 
 1. A basic golang web app for inventory
-1. Testing using testcontainers
+1. Basic Testing using testcontainers
 1. Build using dockerfile
 1. Deployment using docker-compose, k8s yaml (minikube), helm
 1. WIP: CI using concourse
 1. Secret: Vault (Hashicorp)
+
+# Quick start
