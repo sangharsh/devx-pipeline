@@ -1,14 +1,15 @@
-TODO: Helm wait - Not supported
-TODO: Fix concourse build
-TODO: Password is committed in plain-text. Fix it
-TODO: DB connection in golang once closed is not re-created
+TODOs:
 
-## Jul 25
-Production deployment
-CI/CD pipeline
-Ephemeral environments
+1. Helm wait - Not supported; Unable to wait for postgres to be ready before deploying web app using helm hooks
+1. Password is committed in plain-text. Fix it
+1. DB connection in golang once closed is not re-created
+1. Production deployment
+1. CI/CD pipeline
+1. Ephemeral environments
 
-Fix tests and concourse build pipeline
+## Jul 31
+
+Fixed tests and concourse build pipeline
 
 ## Jul 24
 
