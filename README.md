@@ -35,4 +35,4 @@ Evaluation framework, tools being used and alternatives considered are mentioned
 
 # Quick start
 
-To start inventory service, follow [its README](apps/inventory//README.md)
+To start inventory service, follow [app's README](apps/inventory//README.md)
