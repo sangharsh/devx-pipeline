@@ -6,7 +6,9 @@ End to end tool chain for software building with high emphasis for Developer exp
 >
 > -- <cite>[Addy Osmani](https://read-dx.addy.ie/preface)</cite>
 
-# Sample business requirement
+# Simple business requirement
+
+Take a simple busines requirement to build with the tool chain
 
 - Enable user to place an order through their browser.
 - Enable internal team (ops) to manage inventory.
