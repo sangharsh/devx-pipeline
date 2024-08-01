@@ -34,3 +34,5 @@ Evaluation framework, tools being used and alternatives considered are mentioned
 1. Secret: Vault (Hashicorp)
 
 # Quick start
+
+To start inventory service, follow [its README](apps/inventory//README.md)
