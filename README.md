@@ -6,14 +6,6 @@ End to end tool chain for software building with high emphasis for Developer exp
 >
 > -- <cite>[Addy Osmani](https://read-dx.addy.ie/preface)</cite>
 
-# Simple business requirement
-
-Take a simple busines requirement to build with the tool chain
-
-- Enable user to place an order through their browser.
-- Enable internal team (ops) to manage inventory.
-- Track inventory as orders are placed.
-
 # Goals
 
 List is being worked on and will be updated.
@@ -22,11 +14,21 @@ List is being worked on and will be updated.
 1. Changes in code should be easy to test along with dependent services as needed. Possible solution: Ephermeral environments
 1. Most setups and configurations should be visible and repeatable. Solution: Prefer code driven rather than configuring a tool through UI.
 
-# Tech stack
+# Tech stack decisions
 
 Evaluation framework, tools being used and alternatives considered are mentioned in [Techstack](/Techstack.md)
 
-# Current Status
+# Sample use case
+
+## Business requirement
+
+Take a simple busines requirement to build with the tool chain
+
+- Enable user to place an order through their browser.
+- Enable internal team (ops) to manage inventory.
+- Track inventory as orders are placed.
+
+## Current Status
 
 1. A basic golang web app for inventory
 1. Basic Testing using testcontainers
@@ -35,6 +37,6 @@ Evaluation framework, tools being used and alternatives considered are mentioned
 1. WIP: CI using concourse
 1. Secret: Vault (Hashicorp)
 
-# Quick start
+## Quick start
 
 To start inventory service, follow [app's README](apps/inventory//README.md)
